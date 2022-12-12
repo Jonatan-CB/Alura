@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA - NÚMEROS PARES DEL 1 AL 100</h1>
+<script>
+    function saltolinea()
+    {
+        document.write("<br>");
+    }
+
+    function imprimir(frase)
+    {
+        document.write(frase);
+        saltolinea();
+    }
+
+    var num = 0;
+
+    document.write("<h4>Los números pares del 1 al 100 son:</h4>")
+
+    while( num <= 100)
+    {
+        if ( num %2 == 0)
+        {
+            imprimir("• " + num);
+        }
+        if(num == 100)
+        {
+            imprimir("FIN")
+        }
+        num++;
+    }
+
+</script>

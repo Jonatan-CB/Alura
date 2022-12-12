@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+
+<script>
+	var edad1= 26;
+	var edad2= 24;
+	var edad3= 25;
+	var diferenciaedad1= edad1 - edad2;
+	var diferenciaedad2= edad1 - edad3;
+	var med1= " año.";
+	var med2= " años ";
+
+	function saltolinea()
+	{
+		document.write("<br>");
+		//document.write("<br>");
+	}
+
+	function imprimir(frase)
+	{
+		document.write(frase);
+		saltolinea();
+	}
+
+	imprimir("<h4>Cálculo diferencia de edades:</h4>");
+	imprimir("La diferencia de edad con mi hermana menor es de " + diferenciaedad1 + med2 + "actualmente, pero si vez este ejercicio pasado el 08/12/2022 entonces la diferencia de edad es de " + diferenciaedad2 + med1);
+</script>

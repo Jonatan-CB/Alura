@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA - LOTERIA</h1>
+<script>
+    function saltolinea()
+    {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function imprimir(frase)
+    {
+        document.write(frase);
+        saltolinea();
+    }
+    
+    function redireccionar()
+    {
+    setTimeout('document.location.reload()', 3500);
+    }
+
+    var nummax = parseInt(prompt("Ingrese un número máximo que que desea de tickets existentes: "));
+    var numthrown = parseInt(prompt("Ingrese un número entre 0 y " + nummax + ": "));
+    var n = numthrown;
+
+    function sorteo(n)
+    {
+        return Math.round(Math.random()*n);
+    }
+    
+    var numthink = sorteo(n);
+
+    if(numthink == numthrown)
+    {
+        imprimir("Usted acertó!")
+    }
+    else if(numthink != numthrown)
+    {
+        redireccionar();
+        imprimir("Usted erró, el número ganador es: " + numthink);
+
+    }
+</script>

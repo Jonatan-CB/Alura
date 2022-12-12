@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA - ADIVINAR EL NÚMERO</h1>
+<script>
+    function saltolinea()
+    {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function imprimir(frase)
+    {
+        document.write(frase);
+        saltolinea();
+    }
+    
+    function redireccionar()
+    {
+    setTimeout('document.location.reload()', 3000);
+    }
+
+    var numthink = Math.round(Math.random()*10);
+    var numthrown = parseInt(prompt("Ingrese un número entre 0-10"));
+
+    if(numthink == numthrown)
+    {
+        imprimir("Usted acertó!")
+    }
+    else if(numthink != numthrown)
+    {
+        redireccionar();
+        imprimir("Usted erró, el número pensado era " + numthink);
+
+    }
+</script>
