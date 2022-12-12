@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<script>
+    function saltolinea()
+    {
+        document.write("<br>");
+    }
+
+    function imprimir(frase)
+    {
+        document.write(frase);
+        saltolinea();
+    }
+
+    var user = "alura";
+    var pass = "alura321";
+
+    var cont = 1;
+    var intentos = 3;
+
+    while(cont <= intentos)
+    {
+        var ptuser = prompt("Ingrese su usuario");
+        var ptpass = prompt("Ingrese su contraseña");
+        if(user == ptuser && pass == ptpass)
+        {
+            alert("Bienvenido al sistema " + ptuser);
+            document.write("<h1>Bienvenido " + user + "</h1>");
+            break;
+        }
+        else
+        {
+            alert("inicio de sesión inválido. Favor intente de nuevo");
+        }
+        if(user != ptuser && pass != ptpass && cont == intentos)
+        {
+            imprimir("<h1>Te cayo el FBI papu xd!</h1>");
+        }
+        cont++;
+    }
+</script>

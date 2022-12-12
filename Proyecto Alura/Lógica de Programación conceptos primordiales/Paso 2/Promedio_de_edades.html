@@ -1,0 +1,60 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA - MEDIA EDAD DE UNA FAMILIA</h1>
+<script>
+    function saltolinea()
+    {
+        document.write("<br>");
+    }
+
+    function imprimir(frase)
+    {
+        document.write(frase);
+        saltolinea();
+    }
+
+    var mienbros = parseInt(prompt("Ingrese la cantidad de integrantes de su Familia: "));
+    var totalEdad = 0;
+    var mediaEdad = 0;
+    var n = 1;
+    var edad;
+
+    while(n <= mienbros)
+    {
+        /*edad = parseInt(prompt("Ingrese la edad de su Integrate " + n + " es: "));
+        imprimir("• " + edad);*/
+        if ( n <= mienbros)
+        {
+            if(n == 1)
+            {
+                edad = parseInt(prompt("Ingrese la edad de su Padre: "));
+                imprimir("La edad de su Padre es " + edad);
+            }
+            if ( n ==2)
+            {
+                edad = parseInt(prompt("Ingrese la edad de su Madre: "));
+                imprimir("La edad de su Madre es " + edad);
+            }
+            if ( n == 3)
+            {
+                edad = parseInt(prompt("Ingrese su edad: "));
+                imprimir("Su edad es " + edad);;
+            }
+            if( n > 3) 
+            {
+                edad = parseInt(prompt("Ingrese la edad de su Hermano(a): "));
+                imprimir("La edad de su Hermano(a) es " + edad);
+            }
+        }
+        totalEdad = totalEdad + edad;
+        //imprimir(totalEdad);
+        if(n == mienbros)
+        {
+            imprimir("");
+            mediaEdad =  totalEdad / n;
+            imprimir("La media de edades de su familia es: " + Math.round(mediaEdad));
+        }
+        imprimir("");
+        n++;
+    }
+</script>

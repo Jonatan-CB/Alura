@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="400" style="border:2px solid #000000; border-radius: 20px;">
+
+</canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    function paintBox(x,y,color)
+    {
+        pincel.fillStyle = color;
+        pincel.fillRect(x,y,50,50);
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(x,y,50,50);
+    }
+
+    var x = 50;
+    /*while(x < 550)
+    {
+        paintBox(x,50,"red");
+        paintBox(x,100,"yellow");
+        paintBox(x,150,"green");
+
+        x += 50;
+    }*/
+
+    for( x ;x <550; x+= 50)
+    {
+        paintBox(x,50,"red");
+        paintBox(x,100,"yellow");
+        paintBox(x,150,"green");
+        //document.write("<br>FUNCIONO!<br>");
+    }
+</script>
