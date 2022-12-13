@@ -1,0 +1,46 @@
+<canvas width="600" height="600" style="border:2px solid #000000; border-radius: 20px; border-top-left-radius: 0%;"></canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    pincel.fillStyle = "white";
+    pincel.fillRect(0,0,600,600);
+    
+    //Paleta de Colores
+    pincel.fillStyle = "red";
+    pincel.fillRect(0,0,50,50);
+    pincel.fillStyle = "green";
+    pincel.fillRect(50,0,50,50);
+    pincel.fillStyle = "blue";
+    pincel.fillRect(100,0,50,50);
+
+    var puedoDibujar = false;
+
+    function dibujarCirculo(evento)
+    {
+        if(puedoDibujar)
+        {
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+    }
+    pantalla.onmousemove = dibujarCirculo;
+
+    function habilitarDibujar()
+    {
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar()
+    {
+        puedoDibujar = false;
+    }
+
+    pantalla.onmousedown = habilitarDibujar;
+    pantalla.onmouseup = deshabilitarDibujar;
+
+</script>

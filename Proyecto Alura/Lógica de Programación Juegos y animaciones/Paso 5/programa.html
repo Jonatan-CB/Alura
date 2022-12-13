@@ -1,0 +1,63 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="600" style="border:2px solid #000000; border-radius: 20px;"></canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");    
+    pincel.fillStyle = "white";
+    pincel.fillRect(0,0,600,600);
+
+    var radio = 10;
+
+    function createCircle(x,y,radio, color)
+    {
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+    }
+
+    function clear()
+    {
+        pincel.clearRect(0,0,600,600)
+    }
+
+    function desingObjectic(x,y)
+    {
+        createCircle(x,y,radio + 20,"red");
+        createCircle(x,y,radio + 10,"white");
+        createCircle(x,y,radio,"red");
+    }
+
+    function randomPossition(max)
+    {
+        return Math.floor(Math.random()*max);
+    }
+
+    var randomX = randomPossition(600);
+    var randomY = randomPossition(600);
+    var x = 0;
+    function moveCircle()
+    {
+        clear();
+        randomX = randomPossition(600);
+        randomY = randomPossition(600);
+        desingObjectic(randomX,randomY);
+        x++;
+    }
+
+    function shoot(evento)
+    {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if((x < randomX + radio) && (x > randomX - radio) && (y < randomY + radio) && (y > randomY - radio))
+        {
+            alert("Diste en el blanco");
+        }
+    }
+
+    desingObjectic(randomX,randomY)
+    setInterval(moveCircle, 1000);
+    pantalla.onclick = shoot;
+</script>

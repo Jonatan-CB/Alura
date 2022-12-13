@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="600" style="border:2px solid #000000; border-radius: 20px;"></canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");    
+    pincel.fillStyle = "#212F3D";
+    pincel.fillRect(0,0,600,600);
+
+    function createCircle(x,y,radio)
+    {
+        pincel.fillStyle = "black";
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+    }
+
+    function clear()
+    {
+        pincel.clearRect(0,0,600,600)
+    }
+
+    var x = 0;
+    var y = 600;
+    function moveCircle()
+    {
+        clear();
+        if(x<600)
+        {
+            createCircle(x,20,10)
+            x++;
+        }
+        else if(y<=600 && y>0)
+        {
+            createCircle(y,20,10)
+            y--;
+        }
+        else if (x == 600 && y == 0)
+        {
+            x = 0;
+            y = 600;
+        }
+        
+    }
+    setInterval(moveCircle, 5);
+</script>
