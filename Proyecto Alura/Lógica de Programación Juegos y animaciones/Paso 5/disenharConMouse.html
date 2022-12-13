@@ -5,30 +5,44 @@
     var pincel = pantalla.getContext("2d");
     pincel.fillStyle = "white";
     pincel.fillRect(0,0,600,600);
-    
-    //Paleta de Colores
-    pincel.fillStyle = "red";
-    pincel.fillRect(0,0,50,50);
-    pincel.fillStyle = "green";
-    pincel.fillRect(50,0,50,50);
-    pincel.fillStyle = "blue";
-    pincel.fillRect(100,0,50,50);
 
     var puedoDibujar = false;
+    
+    //Variables para dibujar Cuadrados
+    var xred = 0;
+    var xgreen  = 50;
+    var xblue = 100;
+    var ybox = 0;
+    var size = 50;
 
-    function dibujarCirculo(evento)
+    //Para pintar con el mouse
+    function dibujarCirculo(x,y,color)
     {
         if(puedoDibujar)
         {
-            var x = evento.pageX - pantalla.offsetLeft;
-            var y = evento.pageY - pantalla.offsetTop;
-            pincel.fillStyle = 'blue';
+            pincel.fillStyle = color;
             pincel.beginPath();
             pincel.arc(x, y, 5, 0, 2 * Math.PI);
             pincel.fill();
         }
     }
-    pantalla.onmousemove = dibujarCirculo;
+
+    //Para crear los cuadrados
+    function dibujarCuadrados(x,y, size, color)
+    {
+        pincel.fillStyle = color;
+        pincel.fillRect(x,y,size,size);
+        pincel.fill();
+    }
+
+    //Para paleta de Colores
+    var colorActual = "blue";
+    function rellenarCuadrados()
+    {
+        dibujarCuadrados(xred,ybox,size,"red");
+        dibujarCuadrados(xgreen,ybox,size,"green");
+        dibujarCuadrados(xblue,ybox,size,"blue");
+    }
 
     function habilitarDibujar()
     {
@@ -39,8 +53,56 @@
     {
         puedoDibujar = false;
     }
+    
+    //Deshabilitar area de Cuadrados
+    function restringir(posx, posy)
+    { 
+        //alert("Esta parte de restringir"+ posx + ", "+posy);
+        if((posx >= 0 && posx < (3*size+5)) && (posy >= 0  && posy < (size+5)))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
+    //Captura posición del Mouse
+    function captureMouse(evento)
+    {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if(restringir(x,y))
+        {
+            dibujarCirculo(x,y,colorActual);
+        }
+    }
+
+    //Verificar Color
+    function seleccionarColor(evento)
+    {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if((x >= xred) && (x <= (xred + size)) && (y >= ybox) && (y <= (ybox + size)))
+        {
+            colorActual = "red";
+        }
+        else if((x >= xgreen) && (x <= (xgreen + size)) && (y >= ybox) && (y <= (ybox + size)))
+        {
+            colorActual = "green";
+        }
+        else if((x >= xblue) && (x <= (xblue + size)) && (y >= ybox) && (y <= (ybox + size)))
+        {
+            colorActual = "blue";
+        }
+        //alert(colorActual);
+    }
+    
+    pantalla.onmousemove = captureMouse;
     pantalla.onmousedown = habilitarDibujar;
     pantalla.onmouseup = deshabilitarDibujar;
+    rellenarCuadrados();
+    pantalla.onclick = seleccionarColor;
 
 </script>
