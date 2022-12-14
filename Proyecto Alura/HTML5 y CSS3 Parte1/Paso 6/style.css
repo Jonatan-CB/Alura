@@ -5,8 +5,11 @@
     padding: 20px;
 }
 
-h1 {
-    color: black;
+.titleMain {
+    padding-left: 30px;
+}
+
+.centerTitle{
     text-align: center;
 }
 
@@ -23,10 +26,6 @@ em strong { color: #E74C3C; }
 .diferenciales{
     background-color: white;
     padding: 30px;
-}
-
-h2{
-    text-align: center;
 }
 
 .items{
