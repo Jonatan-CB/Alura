@@ -1,0 +1,166 @@
+@media screen and (max-width: 480px){
+    .content-video iframe {
+        width: 100%;
+    }
+}
+
+/*GENERALES*/
+.cabecera{
+    width: 940px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.content{
+    width: 940px;
+    margin: 0 auto;
+}
+
+/*CABECERA*/
+header{
+    background-color: #CCCCCC;
+    padding: 20px 0;
+}
+
+nav{
+    position: absolute;
+    top: 110px;
+    right: 0;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+nav a{
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #C78C19;
+    text-decoration: underline;
+}
+
+/*CUERPO*/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.banner{
+    width: 100%;
+    background-color: #FEFEFE;
+
+}
+
+
+.titlemain{
+    padding: 2em 0 0 0;
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em;
+    clear: left;
+}
+
+.titlemain::first-letter{
+    font-weight: bold;
+}
+
+.principal p {
+    margin: 0 0 1em;
+}
+
+.principal strong{
+    font-weight: bold;
+}
+
+.principal em{
+    font-style: italic;
+}
+
+.utensilios{
+    width: 120px;
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+.map{
+    background: linear-gradient(#FEFEFE, #888888);
+}
+
+.content-map p{
+    margin: 1em 0;
+    text-align: center;
+}
+
+.content-map iframe{
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+.diferenciales{
+    background-color: #888888;
+}
+
+.content-diff{
+    width: 640px;
+    margin: 0 auto;
+}
+
+.list-diff{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.items{
+    line-height: 1.5;
+}
+
+.items::before{
+    content: "✔";
+}
+
+.items:first-child{
+    font-weight: bold;
+}
+
+.img-diff{
+    width: 60%;
+    transition: 400ms;
+    box-shadow: 10px 10px 30px 10px black;
+}
+
+.img-diff:hover{
+    opacity: 30%;
+}
+
+.video{
+    background-color: #888888;
+}
+
+.content-video{
+    padding: 2em 0;
+}
+
+.content-video iframe{
+    width: 560px;
+    height: 315px;
+}
+
+/*PIE DE PÁGINA*/
+footer{
+    text-align: center;
+    background: url(../Images/productos/bg.jpg);
+    padding: 40px;
+}
+
+.copyright{
+    color: white;
+    font-size: 13px;
+}
